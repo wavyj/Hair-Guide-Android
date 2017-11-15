@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">ColemanJustin_FinalProject</string>
+
+    <!-- Signup -->
+    <string name="emailLabel">Email</string>
+    <string name="passwordLabel">Password</string>
+    <string name="confirmPasswordLabel">Confirm Password</string>
+    <string name="signupBtn">Enter</string>
+    <string name="haveaccount">Have an account? Log in.</string>
+
+    <!-- Login -->
+    <string name="loginBtn">Enter</string>
+    <string name="noaccount">No account? Sign up.</string>
+
+    <!-- BottomNav -->
+    <string name="home">Feed</string>
+    <string name="search">Search</string>
+    <string name="add">Create</string>
+    <string name="guides">Guides</string>
+    <string name="profile">Profile</string>
+
+    <!-- Create Dialog Items-->
+    <array name="createOptions">
+        <item>New Post</item>
+        <item>New Guide</item>
+    </array>
 </resources>

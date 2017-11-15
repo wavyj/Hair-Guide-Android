@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "471346129518",
+    "firebase_url": "https://final-project-af0ee.firebaseio.com",
+    "project_id": "final-project-af0ee",
+    "storage_bucket": "final-project-af0ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471346129518:android:0bb95024d310de81",
+        "android_client_info": {
+          "package_name": "com.fullsail.finalproject.jc.colemanjustin_finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471346129518-r4nn4vmc12egc2o792j9he2p39nnk9ja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fullsail.finalproject.jc.colemanjustin_finalproject",
+            "certificate_hash": "0dd510ea016b183dd9808c39c3b849ea35b08133"
+          }
+        },
+        {
+          "client_id": "471346129518-n5meg7kkktk05saklu9otcbvrhqtqdd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmlN_xMt5plWQQtMYcmgERPC2C3yZauHM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471346129518-cjc8c3vppo01pl38bp8v0r4ksebrjsd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ColemanJustin.ColemanJustin-FinalProject"
+              }
+            },
+            {
+              "client_id": "471346129518-n5meg7kkktk05saklu9otcbvrhqtqdd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

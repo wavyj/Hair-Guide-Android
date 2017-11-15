@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/signupView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="56dp">
+
+
+            <ImageView android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:src="@mipmap/ic_launcher"
+                android:transitionName="logo"/>
+
+                <EditText
+                    android:id="@+id/emailInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/emailLabel"
+                    android:inputType="textEmailAddress"
+
+                    android:layout_marginBottom="24dp"/>
+
+                <EditText
+                    android:id="@+id/passwordInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/passwordLabel"
+                    android:inputType="textPersonName"
+                    android:transitionName="password"
+                    android:layout_marginBottom="24dp"/>
+
+                <EditText
+                    android:id="@+id/confirmPasswordInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:ems="10"
+                    android:hint="@string/confirmPasswordLabel"
+                    android:inputType="textPassword"
+                    android:transitionName="confirmPassword"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/signupBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/signupBtn"
+                android:transitionName="btn"/>
+
+            <TextView
+                android:id="@+id/toLoginLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:padding="16dp"
+                android:gravity="center"
+                android:text="@string/haveaccount"
+                android:textSize="16sp"
+                android:transitionName="link"/>
+        </LinearLayout>
+
+    </ScrollView>
