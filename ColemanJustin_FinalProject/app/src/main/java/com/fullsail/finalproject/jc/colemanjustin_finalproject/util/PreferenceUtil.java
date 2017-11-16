@@ -70,4 +70,9 @@ public class PreferenceUtil {
                 loadUserEmail(context), gender, fbUser);
     }
 
+    public static void deleteUserData(Context context){
+        SharedPreferences prefs = getSharedPreference(context);
+        prefs.edit().clear().apply();
+    }
+
 }
