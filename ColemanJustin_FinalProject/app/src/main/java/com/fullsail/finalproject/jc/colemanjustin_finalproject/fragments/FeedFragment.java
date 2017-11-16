@@ -98,7 +98,6 @@ public class FeedFragment extends Fragment {
     }
 
     private void updateGrid(){
-        Log.d(TAG, "Here");
         recyclerView.setAdapter(new PostsAdapter(posts));
     }
 }
