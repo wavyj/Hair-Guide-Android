@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/passwordLabel"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:transitionName="password"
                     android:layout_marginBottom="24dp"/>
 

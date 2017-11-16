@@ -1,10 +1,13 @@
 package com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +17,10 @@ import android.widget.TextView;
 
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.Navigation.NavigationActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.DatabaseUtil;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,6 +71,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
+                if (email.isEmpty()){
+                    emailInput.setError("Can not be empty");
+                    return;
+                }
+
+                if (password.isEmpty()){
+                    passwordInput.setError("Can not be empty");
+                    return;
+                }
+
                 loginUser(email, password);
                 break;
             case R.id.toSignupLink:
@@ -80,12 +95,31 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     PreferenceUtil.saveUserAccount(getActivity(), email, password);
+                    new DatabaseUtil(getActivity()).getUserData();
 
-                    // To Home
-                    Intent feedIntent = new Intent(getActivity(), NavigationActivity.class);
-                    startActivity(feedIntent);
-                    getActivity().finish();
+                        // To Home
+                        Intent feedIntent = new Intent(getActivity(), NavigationActivity.class);
+                        startActivity(feedIntent);
+                        getActivity().finish();
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, e.getLocalizedMessage());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Whoops");
+                if (e.getLocalizedMessage().equals("There is no user record corresponding to this " +
+                        "identifier. The user may have been deleted.")){
+                    builder.setMessage("Account not found");
+                }else if (e.getLocalizedMessage().equals("The password is invalid or the user does " +
+                        "not have a password.")){
+                    builder.setMessage("Incorrect Password");
+                }else if (e.getLocalizedMessage().equals("The email address is badly formatted.")){
+                    builder.setMessage("Must have a valid email address");
+                }
+
+                builder.show();
             }
         });
     }

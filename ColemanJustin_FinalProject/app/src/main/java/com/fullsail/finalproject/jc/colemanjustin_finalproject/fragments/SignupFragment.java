@@ -14,11 +14,16 @@ import android.widget.TextView;
 
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.Navigation.NavigationActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.auth.ProfileSetup;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.data.User;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.DatabaseUtil;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 
 public class SignupFragment extends Fragment implements View.OnClickListener {
@@ -74,12 +79,6 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
                 if (email.equals("")){
                     emailInput.setError("Must have an email e.g. hello@email.com");
                     return;
-                }else if (email.toCharArray().length < 6){
-                    emailInput.setError("Too Short");
-                    return;
-                }else if (email.toCharArray().length > 14){
-                    emailInput.setError("Too Long");
-                    return;
                 }
 
                 //Check password
@@ -116,8 +115,8 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
                     PreferenceUtil.saveUserAccount(getActivity(),email,password);
 
                     //Create User Data
-                    Intent feedIntent = new Intent(getActivity(), NavigationActivity.class);
-                    startActivity(feedIntent);
+                    Intent profileSetupIntent = new Intent(getActivity(), ProfileSetup.class);
+                    startActivity(profileSetupIntent);
                     getActivity().finish();
 
                 }

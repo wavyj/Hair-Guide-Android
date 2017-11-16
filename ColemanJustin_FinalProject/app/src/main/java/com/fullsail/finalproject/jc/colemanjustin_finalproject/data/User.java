@@ -1,55 +1,94 @@
 package com.fullsail.finalproject.jc.colemanjustin_finalproject.data;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Justin on 11/13/17.
  */
 
 public class User {
-    private String mUsername = "";
-    private String mProfilePic = "";
-    private int mFollowers = 0;
-    private int mFollowing = 0;
-    private ArrayList<String> mHairTypes = new ArrayList<String>();
-    private String mBio = "";
+    private String email = "";
+    private String username = "";
+    private String profilePicUrl = "";
+    private int followers = 0;
+    private int following = 0;
+    private ArrayList<String> hairTypes = new ArrayList<String>();
+    private String bio = "";
+    private String gender = "";
+    private String fbuser = "";
 
-    public User(String username, String profilePic, String bio, int followers, int
-            following, ArrayList<String> hairTypes){
-        mUsername = username;
-        mProfilePic = profilePic;
-        mBio = bio;
-        mFollowers = followers;
-        mFollowing = following;
-        mHairTypes = hairTypes;
+    public User(){
+
+    }
+    public User(String username, String profilePicUrl, String bio, int followers, int
+            following, ArrayList<String> hairTypes, String email, String gender, String fbuser){
+        this.username = username;
+        this.profilePicUrl = profilePicUrl;
+        this.bio = bio;
+        this.followers = followers;
+        this.following = following;
+        this.hairTypes = hairTypes;
+        this.email = email;
+        this.fbuser = fbuser;
+    }
+
+    public String getEmail(){
+        return email;
     }
 
     public String getUsername(){
-        return mUsername.toLowerCase();
+        return username.toLowerCase();
     }
 
-    public String getProfilePic(){
-        return mProfilePic;
+    public String getProfilePicUrl(){
+        return profilePicUrl;
     }
 
     public String getBio(){
-        return mBio;
+        return bio;
     }
 
     public int getFollowers(){
-        return mFollowers;
+        return followers;
     }
 
     public int getFollowing(){
-        return mFollowing;
+        return following;
+    }
+
+    public String getGender(){
+        return gender;
     }
 
     public ArrayList<String> getHairTypes(){
-        return mHairTypes;
+        return hairTypes;
     }
 
     public void setHairTypes(ArrayList<String> types){
-        mHairTypes = types;
+        hairTypes = types;
+    }
+
+    public String getFbUser(){
+      return fbuser;
+    }
+
+    public Map<String, Object> toMap(){
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", username);
+        data.put("bio", bio);
+        data.put("gender", gender);
+        data.put("email", email);
+        data.put("followers", followers);
+        data.put("following", following);
+        data.put("hairTypes", hairTypes);
+        data.put("profilePicUrl", profilePicUrl);
+        return data;
+    }
+
+    @Override
+    public String toString() {
+        return email + username + followers + following + profilePicUrl + bio;
     }
 }

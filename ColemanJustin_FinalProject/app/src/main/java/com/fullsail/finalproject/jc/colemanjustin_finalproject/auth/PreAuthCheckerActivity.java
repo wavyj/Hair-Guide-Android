@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.Navigation.NavigationActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.DatabaseUtil;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;
 
 public class PreAuthCheckerActivity extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class PreAuthCheckerActivity extends AppCompatActivity {
             this.finish();
         }else {
             // Logged In - To Home
+            new DatabaseUtil(this).getUserData();
             Intent feedIntent = new Intent(this, NavigationActivity.class);
             startActivity(feedIntent);
             this.finish();

@@ -11,11 +11,21 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.data.User;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments.CreateContentFragment;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments.FeedFragment;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments.GuidesFragment;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments.ProfileFragment;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments.SearchFragment;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;
 
 public class NavigationActivity extends AppCompatActivity implements DialogInterface.OnClickListener {
 
     private AHBottomNavigation bottomNavigation;
+    private FeedFragment mFeedFragment;
+    private SearchFragment mSearchFragment;
+    private CreateContentFragment mCreateContentFragment;
+    private GuidesFragment mGuidesFragment;
+    private ProfileFragment mProfileFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +54,7 @@ public class NavigationActivity extends AppCompatActivity implements DialogInter
         bottomNavigation.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
         bottomNavigation.setInactiveColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         bottomNavigation.setAccentColor(ContextCompat.getColor(this, R.color.colorAccent));
+        bottomNavigation.setBehaviorTranslationEnabled(true);
 
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
@@ -54,20 +65,44 @@ public class NavigationActivity extends AppCompatActivity implements DialogInter
                 switch (position){
                     case 0:
                         toolbar.setTitle("Feed");
+                        if (mFeedFragment == null){
+                            mFeedFragment = FeedFragment.newInstance();
+                        }
+                        getFragmentManager().beginTransaction().replace(R.id.container, mFeedFragment,
+                                FeedFragment.TAG).commit();
                         break;
                     case 1:
                         toolbar.setTitle("Search");
+                        if (mSearchFragment == null){
+                            mSearchFragment = SearchFragment.newInstance();
+                        }
+                        getFragmentManager().beginTransaction().replace(R.id.container, mSearchFragment,
+                                SearchFragment.TAG).commit();
                         break;
                     case 2:
-                        new AlertDialog.Builder(NavigationActivity.this).setItems(R.array.createOptions,
-                                NavigationActivity.this).show();
+                        toolbar.setTitle("Create");
+                        if (mCreateContentFragment == null){
+                            mCreateContentFragment = CreateContentFragment.newInstance();
+                        }
+                        getFragmentManager().beginTransaction().replace(R.id.container, mCreateContentFragment,
+                                CreateContentFragment.TAG).commit();
                         break;
                     case 3:
                         toolbar.setTitle("Guides");
+                        if (mGuidesFragment == null){
+                            mGuidesFragment = GuidesFragment.newInstance();
+                        }
+                        getFragmentManager().beginTransaction().replace(R.id.container, mGuidesFragment,
+                                GuidesFragment.TAG).commit();
                         break;
                     case 4:
                         User u = PreferenceUtil.loadUserData(NavigationActivity.this);
                         toolbar.setTitle(u.getUsername().toLowerCase());
+                        if (mProfileFragment == null){
+                            getFragmentManager().beginTransaction().replace(R.id.container, mProfileFragment,
+                                    ProfileFragment.TAG).commit();
+                        }
+
                 }
                 return true;
             }

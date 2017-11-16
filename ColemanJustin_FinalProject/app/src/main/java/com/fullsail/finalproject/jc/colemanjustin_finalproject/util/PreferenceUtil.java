@@ -17,6 +17,8 @@ public class PreferenceUtil {
     private static String FOLLOWERS = "followers";
     private static String FOLLOWING = "following";
     private static String PROFILEPIC = "profilePic";
+    private static String GENDER = "gender";
+    private static String FBUSER = "fbuser";
 
 
     private PreferenceUtil(){
@@ -48,7 +50,9 @@ public class PreferenceUtil {
         editor.putString(BIO, user.getBio());
         editor.putInt(FOLLOWERS, user.getFollowers());
         editor.putInt(FOLLOWING, user.getFollowing());
-        editor.putString(PROFILEPIC, user.getProfilePic());
+        editor.putString(PROFILEPIC, user.getProfilePicUrl());
+        editor.putString(GENDER, user.getGender());
+        editor.putString(FBUSER, user.getFbUser());
         editor.apply();
     }
 
@@ -59,8 +63,11 @@ public class PreferenceUtil {
         String profilePic = prefs.getString(PROFILEPIC, "");
         int followers = prefs.getInt(FOLLOWERS, 0);
         int following = prefs.getInt(FOLLOWING, 0);
+        String gender = prefs.getString(GENDER, "");
+        String fbUser = prefs.getString(FBUSER, "");
 
-        return new User(username, profilePic, bio, followers, following, new ArrayList<String>());
+        return new User(username, profilePic, bio, followers, following, new ArrayList<String>(),
+                loadUserEmail(context), gender, fbUser);
     }
 
 }
