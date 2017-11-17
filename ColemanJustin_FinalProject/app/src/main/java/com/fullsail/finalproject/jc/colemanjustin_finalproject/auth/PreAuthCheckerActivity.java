@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.fullsail.finalproject.jc.colemanjustin_finalproject.Navigation.NavigationActivity;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.Activities.NavigationActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.DatabaseUtil;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;

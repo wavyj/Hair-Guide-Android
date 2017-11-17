@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class PreferenceUtil {
 
+    private static String REF = "reference";
     private static String EMAIL = "email";
     private static String USERNAME = "username";
     private static String PASSWORD = "password";
@@ -25,8 +26,18 @@ public class PreferenceUtil {
 
     }
 
-    public static SharedPreferences getSharedPreference(Context context){
+    private static SharedPreferences getSharedPreference(Context context){
         return context.getSharedPreferences("hairGuide", Context.MODE_PRIVATE);
+    }
+
+    public static void saveUserReference(Context context, String ref){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString(REF, ref);
+        editor.apply();
+    }
+
+    public static String loadUserReference(Context context){
+        return getSharedPreference(context).getString(REF, "");
     }
 
     public static void saveUserAccount(Context context, String email, String password){

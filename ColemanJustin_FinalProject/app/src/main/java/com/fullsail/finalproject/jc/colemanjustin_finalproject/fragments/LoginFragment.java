@@ -1,7 +1,6 @@
 package com.fullsail.finalproject.jc.colemanjustin_finalproject.fragments;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.fullsail.finalproject.jc.colemanjustin_finalproject.Navigation.NavigationActivity;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.Activities.NavigationActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.DatabaseUtil;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;

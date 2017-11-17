@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context="com.fullsail.finalproject.jc.colemanjustin_finalproject.auth.ProfileSetupActivity">
+    tools:context="com.fullsail.finalproject.jc.colemanjustin_finalproject.Activities.CreateGuideActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -28,45 +28,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profileImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+            <EditText
+                android:id="@+id/titleInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@color/white"/>
-
-            <EditText
-                android:id="@+id/usernameInput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Username"
+                android:hint="Title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/bioInput"
+                android:id="@+id/textInput"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:hint="Bio (Optional)"
+                android:hint="Content"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
+                app:layout_constraintTop_toBottomOf="@+id/titleInput" />
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>

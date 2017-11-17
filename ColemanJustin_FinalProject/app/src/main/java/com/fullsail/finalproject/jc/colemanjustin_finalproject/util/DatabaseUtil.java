@@ -33,6 +33,8 @@ public class DatabaseUtil {
                 }else {
                     if (documentSnapshots.getDocuments().size() > 0) {
                         User u = documentSnapshots.getDocuments().get(0).toObject(User.class);
+                        PreferenceUtil.saveUserReference(mContext, documentSnapshots.getDocuments().
+                                get(0).getReference().getId());
                         PreferenceUtil.saveUserData(mContext, u);
                     }
                 }
@@ -45,6 +47,7 @@ public class DatabaseUtil {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()){
+                    PreferenceUtil.saveUserReference(mContext, task.getResult().get().getResult().getReference().getId());
                     Log.d(TAG, "User Created");
                 }
             }

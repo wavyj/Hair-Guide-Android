@@ -12,18 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.fullsail.finalproject.jc.colemanjustin_finalproject.Navigation.NavigationActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.R;
-import com.fullsail.finalproject.jc.colemanjustin_finalproject.auth.ProfileSetup;
-import com.fullsail.finalproject.jc.colemanjustin_finalproject.data.User;
-import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.DatabaseUtil;
+import com.fullsail.finalproject.jc.colemanjustin_finalproject.auth.ProfileSetupActivity;
 import com.fullsail.finalproject.jc.colemanjustin_finalproject.util.PreferenceUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.ArrayList;
 
 
 public class SignupFragment extends Fragment implements View.OnClickListener {
@@ -115,7 +110,7 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
                     PreferenceUtil.saveUserAccount(getActivity(),email,password);
 
                     //Create User Data
-                    Intent profileSetupIntent = new Intent(getActivity(), ProfileSetup.class);
+                    Intent profileSetupIntent = new Intent(getActivity(), ProfileSetupActivity.class);
                     startActivity(profileSetupIntent);
                     getActivity().finish();
 
