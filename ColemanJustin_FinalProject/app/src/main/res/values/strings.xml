@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ColemanJustin_FinalProject</string>
+    <string name="app_name">HairGuide</string>
 
     <!-- Signup -->
     <string name="emailLabel">Email</string>
